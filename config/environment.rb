@@ -34,6 +34,8 @@ TONE_PASS = ENV['TONE_PASS']
 
 TONE_USERNAME = ENV['TONE_USERNAME']
 
+ALCHEMY_KEY = ENV['ALCHEMY_KEY']
+
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
   # Since this is not the case for us, we set it manually.
