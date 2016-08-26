@@ -5,35 +5,45 @@
   </div>
   <div class="little-container">
   <p>Analysis from Alchemy:</p>
-    <p>Sentiment: <%= analysis[:sentiment] %></p>
-    <p>Score: <%= analysis[:score] %> </p>
+    <p>Sentiment: <%= analysis_sentiment[:sentiment] %></p>
+    <p>Score: <%= analysis_sentiment[:score] %> </p>
+    <ul>
+      <li>Anger: <%= analysis_emotion[:anger] %></li>
+      <li>Disgust: <%= analysis_emotion[:disgust] %></li>
+      <li>Sadness: <%= analysis_emotion[:sadness] %></li>
+      <li>Joy: <%= analysis_emotion[:joy] %></li>
+      <li>Fear: <%= analysis_emotion[:fear] %></li>
+    </ul>
   </div>
+
 </div>
 <div>
   <div class="little-container">
   </div>
   <div class="snark">
-    <% if analysis[:score] >= -100 && analysis[:score] < -50 %>
-      <h3>Sensing some serious negativity coming from you. If you can, try to relax a bit</h3>
+    <% if analysis_sentiment[:score] >= -100 && analysis_sentiment[:score] < -50 %>
+      <h3>Sensing heavy negativity.</h3>
       <figure>
+        <img src="/images/red_flag.png" alt="It's okay" style="width:70px;height:70px">
         <figcaption>Not saying things are great, but they can get better</figcaption>
       </figure>
-    <% elsif analysis[:score] >= -50 && analysis[:score] < 0 %>
-    <h3>Totally normal level of negativity, but you can definitely lighten up.</h3>
+    <% elsif analysis_sentiment[:score] >= -50 && analysis_sentiment[:score] < 0 %>
+    <h3>Totally normal level of negativity.</h3>
     <figure>
-      <img src="/img/asshole.png" alt="you're not wrong">
-      <figcaption>Presumably, what other people think about you.</figcaption>
+      <img src="/images/Orange_flag_waving.png" alt="It's okay" style="width:70px;height:70px">
+      <figcaption>Sensing some negativity, but not unhealthy levels.</figcaption>
     </figure>
-    <% elsif analysis[:score] >= 0 && analysis[:score] < 50  %>
-    <h3>Nothing to say about this. You're in a good place.</h3>
+    <% elsif analysis_sentiment[:score] >= 0 && analysis_sentiment[:score] < 50  %>
+    <h3>No outward negativity or positivity sensed.</h3>
     <figure>
-      <img src="/img/beer.jpg" alt="Obamabeer" style="width:480px;height:480px">
-      <figcaption>You're a good one to keep around</figcaption>
+      <img src="/images/yellow_flag.png" alt="Neutral" style="width:70px;height:70px">
+      <figcaption>Neutral</figcaption>
     </figure>
     <% else  %>
-      <h3>Your happiness is infectious! And a little bit off putting... Do you have to smile so much?</h3>
+      <h3>Positively positive</h3>
     <figure>
-      <figcaption>You are happiness incarnate!</figcaption>
+      <img src="/images/flag_green.png" alt="Happy Days" style="width:70px;height:70px">
+      <figcaption>Good sense of Positivity!</figcaption>
     </figure>
     <% end  %>
     </div>
