@@ -71,9 +71,6 @@ helpers do
     return { anger: anger, disgust: disgust, fear: fear, joy: joy, sadness: sadness }
   end
 
-  def current_user
-    @current_user ||= User.find(session[:id]) if session[:id]
-  end
 
   def string_to_hash(post_analysis)
     return eval(post_analysis)

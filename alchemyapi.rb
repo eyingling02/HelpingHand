@@ -90,6 +90,8 @@ class AlchemyAPI
 
 	@@BASE_URL = 'http://access.alchemyapi.com/calls'
 
+	@@ENDPOINTS['emotion'] = {}
+	@@ENDPOINTS['emotion']['text'] = '/text/TextGetEmotion'
 
 	def initialize()
 
@@ -126,29 +128,29 @@ class AlchemyAPI
 
 
 
- #  def emotion(flavor, data, options={})
-	# 	unless @@ENDPOINTS['emotion'].key?(flavor)
-	# 		return { 'status'=>'ERROR', 'statusInfo'=>'emotion analysis for ' + flavor + ' not available.'}
-	# 	end
-	# 	options[flavor] = data
-	# 	return analyze(@@ENDPOINTS['emotion'][flavor], options)
-	# end
+  def emotion(flavor, data, options={})
+		unless @@ENDPOINTS['emotion'].key?(flavor)
+			return { 'status'=>'ERROR', 'statusInfo'=>'emotion analysis for ' + flavor + ' not available.'}
+		end
+		options[flavor] = data
+		return analyze(@@ENDPOINTS['emotion'][flavor], options)
+	end
 
 	# Calculates the sentiment for text, a URL or HTML.
 	# For an overview, please refer to: http://www.alchemyapi.com/products/features/sentiment-analysis/
 	# For the docs, please refer to: http://www.alchemyapi.com/api/sentiment-analysis/
-	#
+
 	# INPUT:
 	# flavor -> which version of the call, i.e. text, url or html.
 	# data -> the data to analyze, either the text, the url or html code.
 	# options -> various parameters that can be used to adjust how the API works, see below for more info on the available options.
-	#
+
 	# Available Options:
 	# showSourceText -> 0: disabled (default), 1: enabled
- 	#
+
 	# OUTPUT:
 	# The response, already converted from JSON to a Ruby object.
- 	#
+
 	def sentiment(flavor, data, options = {})
 		unless @@ENDPOINTS['sentiment'].key?(flavor)
 			return { 'status'=>'ERROR', 'statusInfo'=>'sentiment analysis for ' + flavor + ' not available' }
