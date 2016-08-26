@@ -8,6 +8,9 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 # Require gems we care about
 require 'rubygems'
 
+require 'dotenv'
+Dotenv.load
+
 require 'uri'
 require 'pathname'
 
@@ -26,6 +29,10 @@ require 'erb'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+TONE_PASS = ENV['TONE_PASS']
+
+TONE_USERNAME = ENV['TONE_USERNAME']
 
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
