@@ -16,15 +16,15 @@ gem 'shotgun'
 gem 'easytone'
 gem 'dotenv'
 gem 'json'
+gem 'rspec', '~>3.0'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
-  gem 'rspec', '~>3.0'
   gem 'capybara'
 end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
 end
