@@ -1,1 +1,0 @@
-sections_controller.rb
