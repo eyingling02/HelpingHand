@@ -1,3 +1,4 @@
 class Section < ActiveRecord::Base
-  # Remember to create a migration!
+	belongs_to :teacher
+	belongs_to :student
 end
