@@ -6,7 +6,6 @@ class CreateStudents < ActiveRecord::Migration
   		t.text :notes
   		t.integer :risk_level
   		t.string :emotional_analysis
-  		t.integer :section_id
   		t.text :assignment
 
   		t.timestamps null: false
